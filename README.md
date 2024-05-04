@@ -58,3 +58,16 @@ examples of adding popularly requested plugins.
 <details><summary>Arch Install Steps</summary>
 
 
+
+## TODO
++ go to def with ctrl-]
++ space-f and space-tab
++ install themes
++ install markdownlint with mason
++ fix root problem probably with vim-rooter
++ test dockerfile and helm and mabye install old plugins
++ install editorconfig and undotree plugin
++ check snippets like iferr in go
++ add dashboard maybe
++ add next/prev tabs
++ add ctrl-a and other shortcut
