@@ -86,7 +86,7 @@ vim.o.path = vim.o.path .. '**' -- search file with :find (same as FZF)
 -- persistent undo
 if vim.fn.has 'persistent_undo' == 1 then
   vim.opt.undofile = true
-  local undodir = '/tmp/vimundo'
+  local undodir = '/tmp/my-nvim-undo'
 
   local exists = vim.fn.isdirectory(undodir)
   if exists == 0 then
