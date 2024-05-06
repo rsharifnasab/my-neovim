@@ -121,6 +121,45 @@ vim.keymap.set('n', '<C-Right>', '<C-w><C-l>', { desc = 'Move focus to the right
 vim.keymap.set('n', '<C-Up>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-Down>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- my keymaps
+-- Ctrl-A to select all
+vim.api.nvim_set_keymap('n', '<C-a>', '<esc>ggVG<CR>', { noremap = true, silent = true })
+
+-- Ctrl-S to save in normal, visual, and insert modes
+vim.api.nvim_set_keymap('n', '<C-S>', ':update<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<C-S>', '<C-C>:update<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-S>', '<C-O>:update<CR>', { noremap = true, silent = true })
+
+-- Ctrl-L to clear highlighted search results
+vim.api.nvim_set_keymap('n', '<C-L>', ':nohlsearch<CR>h<C-L>', { noremap = true, silent = true })
+
+-- Esc in terminal mode to exit
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+
+-- Buffer navigation mappings
+vim.api.nvim_set_keymap('n', '<C-p>', ':bnext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-o>', ':bprevious<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-n>', ':enew<cr>', { noremap = true, silent = true })
+
+-- Close current buffer
+vim.api.nvim_set_keymap('n', '<C-q>', ':bd<CR>', { noremap = true, silent = true })
+
+-- Ctrl-C in insert mode to escape
+vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>', { noremap = true, silent = true })
+
+-- Disable 'Q'
+vim.api.nvim_set_keymap('n', 'Q', '<nop>', { noremap = true })
+
+-- Remap semicolon to colon, simplifying command mode entry
+vim.api.nvim_set_keymap('n', ';', ':', { noremap = true })
+vim.api.nvim_set_keymap('v', ';', ':', { noremap = true })
+
+-- Custom command aliases
+vim.api.nvim_create_user_command('Wq', 'wq', {})
+vim.api.nvim_create_user_command('WQ', 'wq', {})
+vim.api.nvim_create_user_command('W', 'w', {})
+vim.api.nvim_create_user_command('Q', 'x', {})
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
