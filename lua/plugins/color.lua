@@ -53,21 +53,91 @@ return {
       }
     end,
   },
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is.
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'folke/tokyonight.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    init = function()
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
 
-      -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+  -- colorschemes
+  {
+    'rmehri01/onenord.nvim',
+    lazy = true,
+    config = function()
+      require('onenord').setup {
+        theme = 'dark', -- "dark" or "light".
+        borders = true, -- Split window borders
+        fade_nc = true, -- Fade non-current windows
+        styles = {
+          comments = 'NONE',
+          strings = 'NONE',
+          keywords = 'NONE',
+          functions = 'NONE',
+          variables = 'NONE',
+          diagnostics = 'underline',
+        },
+        disable = {
+          background = false, -- Disable setting the background color
+          float_background = false, -- Disable setting the background color for floating windows
+          cursorline = false, -- Disable the cursorline
+          eob_lines = true, -- Hide the end-of-buffer lines
+        },
+        -- Inverse highlight for different groups
+        inverse = {
+          match_paren = false,
+        },
+        custom_highlights = {},
+        custom_colors = {},
+      }
+    end,
+  },
+  {
+    'ribru17/bamboo.nvim',
+    lazy = true,
+    config = function()
+      require('bamboo').setup {
+        transparent = false, -- Show/hide background
+        dim_inactive = false, -- Dim inactive windows/buffers
+        code_style = {
+          comments = { italic = true },
+          conditionals = { italic = true },
+          keywords = {},
+          functions = {},
+          namespaces = { italic = true },
+          parameters = { italic = true },
+          strings = {},
+          variables = {},
+        },
+      }
+      --require('bamboo').load()
+    end,
+  },
+  'rafi/awesome-vim-colorschemes',
+  'AhmedAbdulrahman/vim-aylin',
+  'arzg/vim-colors-xcode',
+  {
+    -- https://github.com/ThemerCorp/themer.lua
+    'themercorp/themer.lua',
+    priority = 1000,
+    init = function()
+      require('themer').setup {
+        colorscheme = 'kanagawa',
+        transparent = false,
+        lugins = {
+          treesitter = true,
+          indentline = true,
+          barbar = true,
+          bufferline = true,
+          cmp = true,
+          gitsigns = true,
+          lsp = true,
+          telescope = true,
+        },
+        styles = {
+          ['function'] = { style = 'italic' },
+          functionbuiltin = { style = 'italic' },
+          variable = { style = 'italic' },
+          variableBuiltIn = { style = 'italic' },
+          parameter = { style = 'italic' },
+        },
+      }
+      require('telescope').load_extension 'themes'
+      -- use :Telescope themes
     end,
   },
 }

@@ -175,6 +175,7 @@ require('lazy').setup({
   require 'plugins.lint',
   require 'plugins.tree',
   require 'plugins.gitsigns',
+  require 'plugins.dashboard',
 
   require 'plugins.ts',
   require 'plugins.lsp',

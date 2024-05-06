@@ -1,5 +1,4 @@
 return {
-  -- Adds git related signs to the gutter, as well as utilities for managing changes
   'lewis6991/gitsigns.nvim',
   opts = {
     signs = {
@@ -70,6 +69,16 @@ return {
       -- Toggles
       map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
       map('n', '<leader>tD', gitsigns.toggle_deleted, { desc = '[T]oggle git show [D]eleted' })
+
+      -- enable for low-contrast themes only
+      if false then
+        vim.api.nvim_set_hl(0, 'GitSignsAdd', { guifg = '#009900', ctermfg = 2 })
+        vim.api.nvim_set_hl(0, 'GitSignsChange', { guifg = '#bbbb00', ctermfg = 3 })
+        vim.api.nvim_set_hl(0, 'GitSignsChangeDelete', { guifg = '#bbbb00', ctermfg = 3 })
+        vim.api.nvim_set_hl(0, 'GitSignsDelete', { guifg = '#ff2222', ctermfg = 1 })
+        vim.api.nvim_set_hl(0, 'GitSignsTopDelete', { guifg = '#ff2222', ctermfg = 1 })
+        vim.api.nvim_set_hl(0, 'GitSignsUntracked', { guifg = '#ff2222', ctermfg = 1 })
+      end
     end,
   },
 }
