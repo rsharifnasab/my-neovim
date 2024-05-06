@@ -13,7 +13,7 @@ vim.opt.wrap = true -- break long lines
 vim.opt.linebreak = true -- break lines on white space
 vim.opt.breakindent = true -- indent line after break
 
-vim.opt.cursorline = true -- Show which line your cursor is on
+vim.opt.cursorline = true -- highlight current line
 vim.opt.scrolloff = 10 -- Lines to keep above and below the cursor while scrolling
 vim.opt.sidescrolloff = 5
 
@@ -104,13 +104,8 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagn
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
-
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
---
 --  See `:help wincmd` for a list of all window commands
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
@@ -123,42 +118,28 @@ vim.keymap.set('n', '<C-Down>', '<C-w><C-k>', { desc = 'Move focus to the upper 
 
 -- my keymaps
 -- Ctrl-A to select all
-vim.api.nvim_set_keymap('n', '<C-a>', '<esc>ggVG<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-a>', '<esc>ggVG<CR>', { noremap = true, silent = true, desc = 'Select all' })
+vim.api.nvim_set_keymap('n', '<C-S>', ':update<CR>', { noremap = true, silent = true, desc = 'Ctrl-s to save to disk if needed' })
+vim.api.nvim_set_keymap('v', '<C-S>', '<C-C>:update<CR>', { noremap = true, silent = true, desc = 'Ctrl-s to save to disk if needed' })
+vim.api.nvim_set_keymap('i', '<C-S>', '<C-O>:update<CR>', { noremap = true, silent = true, desc = 'Ctrl-s to save to disk if needed' })
+vim.api.nvim_set_keymap('n', '<C-L>', ':nohlsearch<CR>h<C-L>', { noremap = true, silent = true, desc = 'clear highlighted search result' })
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true, desc = 'Esc in terminal mode to exit' })
 
--- Ctrl-S to save in normal, visual, and insert modes
-vim.api.nvim_set_keymap('n', '<C-S>', ':update<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<C-S>', '<C-C>:update<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<C-S>', '<C-O>:update<CR>', { noremap = true, silent = true })
-
--- Ctrl-L to clear highlighted search results
-vim.api.nvim_set_keymap('n', '<C-L>', ':nohlsearch<CR>h<C-L>', { noremap = true, silent = true })
-
--- Esc in terminal mode to exit
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
-
--- Buffer navigation mappings
-vim.api.nvim_set_keymap('n', '<C-p>', ':bnext<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-o>', ':bprevious<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-n>', ':enew<cr>', { noremap = true, silent = true })
-
--- Close current buffer
-vim.api.nvim_set_keymap('n', '<C-q>', ':bd<CR>', { noremap = true, silent = true })
-
--- Ctrl-C in insert mode to escape
-vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>', { noremap = true, silent = true })
-
--- Disable 'Q'
-vim.api.nvim_set_keymap('n', 'Q', '<nop>', { noremap = true })
-
--- Remap semicolon to colon, simplifying command mode entry
-vim.api.nvim_set_keymap('n', ';', ':', { noremap = true })
-vim.api.nvim_set_keymap('v', ';', ':', { noremap = true })
-
+vim.api.nvim_set_keymap('n', ';', ':', { noremap = true, desc = 'simplify command mode entry' })
+vim.api.nvim_set_keymap('v', ';', ':', { noremap = true, desc = 'simplify command mode entry' })
 -- Custom command aliases
 vim.api.nvim_create_user_command('Wq', 'wq', {})
 vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('W', 'w', {})
 vim.api.nvim_create_user_command('Q', 'x', {})
+
+-- Buffer mappings
+vim.api.nvim_set_keymap('n', '<C-p>', ':bnext<CR>', { noremap = true, silent = true, desc = 'Next opened buffer' })
+vim.api.nvim_set_keymap('n', '<C-o>', ':bprevious<CR>', { noremap = true, silent = true, desc = 'Prev opened buffer' })
+vim.api.nvim_set_keymap('n', '<C-n>', ':enew<cr>', { noremap = true, silent = true, desc = 'Open new buffer' })
+vim.api.nvim_set_keymap('n', '<C-q>', ':bd<CR>', { noremap = true, silent = true, desc = 'close current buffer' })
+vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>', { noremap = true, silent = true, desc = 'ctrl-c to exit insert mode' })
+vim.api.nvim_set_keymap('n', 'Q', '<nop>', { noremap = true, desc = 'disable Q' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
