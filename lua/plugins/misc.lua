@@ -1,6 +1,25 @@
 return {
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   { 'numToStr/Comment.nvim', opts = {} }, -- "gc" to comment/Uncomment
+  {
+    'airblade/vim-rooter',
+    lazy = false,
+    init = function()
+      -- Setting global variables for the Rooter plugin in Lua
+      vim.g.rooter_manual_only = 0
+      vim.g.rooter_patterns = { 'src', '.git', 'Makefile', 'go.mod' }
+    end,
+  },
+  { 'editorconfig/editorconfig-vim' },
+  { 'mbbill/undotree' },
+  {
+    'romgrk/barbar.nvim',
+    requires = {
+      { 'lewis6991/gitsigns.nvim' },
+      { 'nvim-tree/nvim-web-devicons' },
+    },
+  },
+
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()

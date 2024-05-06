@@ -183,6 +183,7 @@ require('lazy').setup({
   require 'plugins.autoformat',
   require 'plugins.color',
   require 'plugins.key',
+  require 'plugins.lang',
   require 'plugins.misc',
 }, {
   ui = {
