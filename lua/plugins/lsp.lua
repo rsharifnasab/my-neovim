@@ -90,11 +90,12 @@ return { -- LSP Configuration & Plugins
       helm_ls = {},
       csharp_ls = {},
       html = {},
+      bashls = {},
       --yamlls = {},
       rust_analyzer = {},
       jsonls = {},
       --python
-      ruff = {},
+      --ruff = {},
       jedi_language_server = {},
       pyright = {},
 
@@ -142,9 +143,15 @@ return { -- LSP Configuration & Plugins
       'gofumpt',
       'gci',
       'jq',
-      'shellcheck',
+      'shellcheck', -- used by bash langauge server
+      'shfmt',
       'markdownlint',
       'yamllint',
+      'yamlfmt',
+      'yamlfix',
+      'ruff',
+      'pyright',
+      'prettierd',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

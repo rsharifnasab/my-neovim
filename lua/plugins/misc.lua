@@ -14,7 +14,7 @@ return {
   { 'mbbill/undotree' },
   {
     'romgrk/barbar.nvim',
-    requires = {
+    dependencies = {
       { 'lewis6991/gitsigns.nvim' },
       { 'nvim-tree/nvim-web-devicons' },
     },

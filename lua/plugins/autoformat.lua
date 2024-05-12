@@ -114,9 +114,10 @@ return { -- Autoformat
       cpp = { { 'astyle', 'clang_format' } },
       java = { 'astyle', 'goole-java-format' },
       go = { 'goimports', 'gofmt', 'gofumpt', 'gci' },
-      python = { 'isort', { 'ruff', 'black', 'pyflakes', 'autopep8' } },
+      python = { 'isort', { 'ruff', 'black', 'autopep8' } },
       py = { 'isort', 'black', 'pyflakes', 'autopep8' },
-      shell = { 'shfmt', 'shellcheck' },
+      sh = { 'shfmt', 'shellcheck' },
+      bash = { 'shfmt', 'shellcheck' },
 
       html = { { 'prettierd', 'prettier' } },
       javascript = { { 'prettierd', 'prettier' } },
