@@ -15,7 +15,9 @@ return { -- LSP Configuration & Plugins
         local map = function(keys, func, desc)
           vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
+        map('gs', require('telescope.builtin').lsp_definitions, '[G]oto Definition ([S]ource)')
         map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+        map('C-]', require('telescope.builtin').lsp_definitions, 'Goto Definition')
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
         map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences') -- for work under cursor
         map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
@@ -86,8 +88,9 @@ return { -- LSP Configuration & Plugins
     local servers = {
       clangd = {},
       helm_ls = {},
+      csharp_ls = {},
       html = {},
-      yamlls = {},
+      --yamlls = {},
       rust_analyzer = {},
       jsonls = {},
       --python
@@ -137,8 +140,11 @@ return { -- LSP Configuration & Plugins
       'golangci-lint',
       'goimports',
       'gofumpt',
+      'gci',
       'jq',
       'shellcheck',
+      'markdownlint',
+      'yamllint',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

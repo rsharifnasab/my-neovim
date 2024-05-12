@@ -13,6 +13,7 @@ return {
       lint.linters_by_ft['go'] = { 'golangcilint' }
       lint.linters_by_ft['sh'] = { 'shellcheck' }
       lint.linters_by_ft['bash'] = { 'shellcheck' }
+      lint.linters_by_ft['yaml'] = { 'yamllint' }
       lint.linters_by_ft['clojure'] = nil
       lint.linters_by_ft['inko'] = nil
       lint.linters_by_ft['janet'] = nil

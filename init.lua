@@ -134,8 +134,8 @@ vim.api.nvim_create_user_command('W', 'w', {})
 vim.api.nvim_create_user_command('Q', 'x', {})
 
 -- Buffer mappings
-vim.api.nvim_set_keymap('n', '<C-p>', ':bnext<CR>', { noremap = true, silent = true, desc = 'Next opened buffer' })
-vim.api.nvim_set_keymap('n', '<C-o>', ':bprevious<CR>', { noremap = true, silent = true, desc = 'Prev opened buffer' })
+vim.api.nvim_set_keymap('n', '<C-p>', ':BufferNext<CR>', { noremap = true, silent = true, desc = 'Next opened buffer' })
+vim.api.nvim_set_keymap('n', '<C-o>', ':BufferPrevious<CR>', { noremap = true, silent = true, desc = 'Prev opened buffer' })
 vim.api.nvim_set_keymap('n', '<C-n>', ':enew<cr>', { noremap = true, silent = true, desc = 'Open new buffer' })
 vim.api.nvim_set_keymap('n', '<C-q>', ':bd<CR>', { noremap = true, silent = true, desc = 'close current buffer' })
 vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>', { noremap = true, silent = true, desc = 'ctrl-c to exit insert mode' })
@@ -169,6 +169,11 @@ autocmd BufNewFile *.py 0r ~/Templates/a.py
 autocmd BufNewFile *.c 0r ~/Templates/main.c
 autocmd BufNewFile algorithm.cpp 0r ~/Templates/algorithm.cpp
 autocmd BufNewFile tester.cpp 0r ~/Templates/tester.cpp
+]]
+
+vim.cmd [[
+let g:loaded_netrw=1
+let g:loaded_netrwPlugin=1
 ]]
 
 -- [[ Install `lazy.nvim` plugin manager ]]
