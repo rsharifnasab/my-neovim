@@ -2,7 +2,15 @@ return {
   {
     'ray-x/lsp_signature.nvim',
     event = 'VeryLazy',
-    opts = {},
+    opts = {
+      hint_enable = false,
+
+      doc_lines = 0,
+      floating_window = true,
+      max_height = 3, -- for floating_window
+      max_width = 60, -- for floating_window, line will be wrapped if exceed max_width (>= 40)
+      wrap = true, -- allow text wrap inside floating_window, if doc/sig is long
+    },
     config = function(_, opts)
       require('lsp_signature').setup(opts)
     end,
