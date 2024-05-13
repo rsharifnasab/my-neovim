@@ -116,7 +116,8 @@ return {
     priority = 1000,
     init = function()
       require('themer').setup {
-        colorscheme = 'kanagawa',
+        --colorscheme = 'kanagawa',
+        colorscheme = 'astron',
         transparent = false,
         lugins = {
           treesitter = true,
@@ -137,7 +138,12 @@ return {
         },
       }
       require('telescope').load_extension 'themes'
-      -- use :Telescope themes
+      -- Select themes:
+      -- :Telescope themes
+      -- :COLORSCROLL
+      -- export to kitty:
+      -- :lua require("themer.modules.export.kitty").write_config()
+      -- :w  ~/.config/kitty/nvim-color.conf
     end,
   },
 }
