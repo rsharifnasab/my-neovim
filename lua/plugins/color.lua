@@ -117,7 +117,7 @@ return {
     init = function()
       require('themer').setup {
         --colorscheme = 'kanagawa',
-        colorscheme = 'astron',
+        colorscheme = 'doom_one',
         transparent = false,
         lugins = {
           treesitter = true,
