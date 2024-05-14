@@ -233,4 +233,17 @@ require('lazy').setup({
   },
 })
 
+-- fix nvim-libuv bug
+-- https://github.com/stevearc/conform.nvim/issues/173
+-- https://github.com/neovim/neovim/issues/21856
+-- https://github.com/olimorris/persisted.nvim/issues/84
+--
+vim.api.nvim_create_autocmd({ 'VimLeave' }, {
+  callback = function()
+    --vim.cmd "!notify-send ''"
+    --vim.cmd 'sleep 10m'
+    vim.cmd.sleep { args = { '1m' } }
+  end,
+})
+
 -- vim: ts=2 sts=2 sw=2 et
