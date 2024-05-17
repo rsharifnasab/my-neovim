@@ -238,10 +238,9 @@ require('lazy').setup({
 -- https://github.com/neovim/neovim/issues/21856
 -- https://github.com/olimorris/persisted.nvim/issues/84
 --
-vim.api.nvim_create_autocmd({ 'VimLeave' }, {
+vim.api.nvim_create_autocmd({ 'VimLeavePre' }, {
+  pattern = '*',
   callback = function()
-    --vim.cmd "!notify-send ''"
-    --vim.cmd 'sleep 10m'
     vim.cmd.sleep { args = { '1m' } }
   end,
 })
