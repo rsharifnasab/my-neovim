@@ -11,6 +11,7 @@ return {
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
     main = 'ibl',
+    version = '3.5',
     opts = {},
     config = function()
       local hooks = require 'ibl.hooks'
@@ -110,6 +111,18 @@ return {
   'rafi/awesome-vim-colorschemes',
   'AhmedAbdulrahman/vim-aylin',
   'arzg/vim-colors-xcode',
+  {
+    'marko-cerovac/material.nvim',
+    config = function()
+      require('material').setup {
+        disable = {
+          colored_cursor = false, -- Disable the colored cursor
+          borders = false, -- Disable borders between verticaly split windows
+          --eob_lines = false, -- Hide the end-of-buffer lines
+        },
+      }
+    end,
+  },
   {
     -- https://github.com/ThemerCorp/themer.lua
     'themercorp/themer.lua',
