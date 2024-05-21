@@ -11,7 +11,7 @@ return {
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
     main = 'ibl',
-    version = '3.5',
+    --version = '3.5',
     opts = {},
     config = function()
       local hooks = require 'ibl.hooks'
