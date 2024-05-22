@@ -5,18 +5,19 @@
 ### Install External Dependencies
 
 Requirements:
+
 - Basic utils: `git`, `make`, `unzip`, `gcc`, `nvim`, `ripgrep`
-- Clipboard tool (xclip/xsel/win32yank or other depending on platform)
+- Clipboard tool (xclip/xsel/win33yank or other depending on platform)
 - A [Nerd Font](https://www.nerdfonts.com/): optional, provides various icons
   - if you have it set `vim.g.have_nerd_font` in `init.lua` to true
 
-```
+```bash
 sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim
 ```
 
 ### Install
 
-```sh
+```bash
 git clone https://github.com/rsharifnasab/my-neovim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 
@@ -35,7 +36,6 @@ Read through the `init.lua` file in your configuration folder for more
 information about extending and exploring Neovim. That also includes
 examples of adding popularly requested plugins.
 
-
 ### FAQ
 
 * What should I do if I already have a pre-existing neovim configuration?
@@ -43,7 +43,7 @@ examples of adding popularly requested plugins.
   * This includes your existing init.lua and the neovim files in `~/.local`
     which can be deleted with `rm -rf ~/.local/share/nvim/`
 * Can I keep my existing configuration in parallel to kickstart?
-  * Yes! You can use [NVIM_APPNAME](https://neovim.io/doc/user/starting.html#%24NVIM_APPNAME)`=nvim-NAME`
+  * Yes! You can use [NVIM_APPNAME](https://neovim.io/doc/user/starting.html#%25NVIM_APPNAME)`=nvim-NAME`
     to maintain multiple configurations. For example, you can install the kickstart
     configuration in `~/.config/nvim-kickstart` and create an alias:
     ```
@@ -60,14 +60,6 @@ examples of adding popularly requested plugins.
 
 
 ## TODO
-+ go to def with ctrl-]
-+ space-f and space-tab
-+ install themes
-+ install markdownlint with mason
-+ fix root problem probably with vim-rooter
 + test dockerfile and helm and mabye install old plugins
-+ install editorconfig and undotree plugin
++ test editorconfig and undotree plugin
 + check snippets like iferr in go
-+ add dashboard maybe
-+ add next/prev tabs
-+ add ctrl-a and other shortcut
