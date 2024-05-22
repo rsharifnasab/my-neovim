@@ -105,7 +105,7 @@ return {
       local servers = {
         clangd = {},
         helm_ls = {},
-        csharp_ls = {},
+        --csharp_ls = {},
         html = {},
         bashls = {},
         --yamlls = {},
