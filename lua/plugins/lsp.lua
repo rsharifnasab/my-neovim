@@ -169,6 +169,10 @@ return {
         'ruff',
         'pyright',
         'prettierd',
+        'black',
+        'isort',
+        'pylint',
+        'flake8',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

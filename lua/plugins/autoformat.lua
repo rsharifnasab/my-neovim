@@ -46,7 +46,7 @@ vim.api.nvim_create_user_command('Format', function(args)
       ['end'] = { args.line2, end_line:len() },
     }
   end
-  require('conform').format { async = true, lsp_fallback = true, range = range }
+  require('conform').format { async = true, lsp_fallback = true, range = range, quiet = false }
 end, { range = true })
 
 vim.api.nvim_create_autocmd('BufWritePre', {
@@ -82,19 +82,19 @@ end, {
   desc = 'Re-enable autoformat-on-save',
 })
 
-vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-
 -- TODO: make a custom linter for astyle (c/java)
 --https://github.com/stevearc/conform.nvim/issues/339
 
 return { -- Autoformat
   'stevearc/conform.nvim',
-  lazy = false,
+  event = { 'BufWritePre' },
+  cmd = { 'ConformInfo' },
+  --lazy = false,
   keys = {
     {
       '<leader>l',
       function()
-        require('conform').format { async = true, lsp_fallback = true }
+        require('conform').format { async = true, lsp_fallback = true, quiet = false }
       end,
       mode = '',
       desc = 'Format buffer',
@@ -114,8 +114,8 @@ return { -- Autoformat
       cpp = { { 'astyle', 'clang_format' } },
       java = { 'astyle' },
       go = { 'goimports', 'gofmt', 'gofumpt', 'gci' },
-      python = { 'isort', { 'ruff', 'black', 'autopep8' } },
-      py = { 'isort', 'black', 'autopep8' },
+      py = { 'isort', 'ruff', { 'ruff_format', 'black' } },
+      python = { 'isort', 'ruff', { 'ruff_format', 'black' } },
       sh = { 'shfmt', 'shellcheck' },
       bash = { 'shfmt', 'shellcheck' },
 
@@ -132,7 +132,15 @@ return { -- Autoformat
       -- all with unrecognized type
       ['_'] = { 'codespell' },
     },
-
+    formatters = {
+      shfmt = {
+        prepend_args = { '-i', '2' },
+      },
+    },
     notify_on_error = true,
   },
+
+  init = function()
+    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+  end,
 }
