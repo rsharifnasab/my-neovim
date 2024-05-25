@@ -42,6 +42,7 @@ return {
         underline = true,
         severity_sort = true,
       }
+      -- TODO: https://github.com/1995parham/elievim/blob/a683ce41ff14b374f18eb89f609257b1f1c1dd22/lua/modules/completion/config.lua#L8
 
       -- Show diagnostics in a floating window on hover
       vim.api.nvim_create_autocmd({ 'CursorHold' }, {
