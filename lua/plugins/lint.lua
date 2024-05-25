@@ -32,6 +32,33 @@ return {
           require('lint').try_lint()
         end,
       })
+
+      vim.diagnostic.config {
+        virtual_text = {
+          prefix = '', -- Could be '●', '▎', 'x'
+          spacing = 4,
+        },
+        signs = true,
+        underline = true,
+        severity_sort = true,
+      }
+
+      -- Show diagnostics in a floating window on hover
+      vim.api.nvim_create_autocmd({ 'CursorHold' }, {
+        callback = function()
+          local opts = {
+            focusable = false,
+            close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
+            border = 'rounded',
+            source = 'always',
+            prefix = ' ',
+            scope = 'cursor',
+          }
+          vim.diagnostic.open_float(nil, opts)
+        end,
+      })
+
+      vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { noremap = true, silent = true, desc = 'Show diagnostics in floating windows' })
     end,
   },
 }

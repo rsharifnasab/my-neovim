@@ -110,12 +110,16 @@ return { -- Autoformat
       yaml = { { 'prettierd', 'prettier' }, 'yamlfmt', 'yq', 'yamlfix' },
       json = { 'jq', { 'prettierd', 'prettier' } },
       md = { { 'prettierd', 'prettier' } },
+
       c = { { 'astyle', 'clang_format' } },
       cpp = { { 'astyle', 'clang_format' } },
+
       java = { 'astyle' },
       go = { 'goimports', 'gofmt', 'gofumpt', 'gci' },
-      py = { 'isort', 'ruff', { 'ruff_format', 'black' } },
-      python = { 'isort', 'ruff', { 'ruff_format', 'black' } },
+
+      py = { 'isort', { 'ruff_format', 'black' } }, -- ruff_fix
+      python = { 'isort', { 'ruff_format', 'black' } },
+
       sh = { 'shfmt', 'shellcheck' },
       bash = { 'shfmt', 'shellcheck' },
 
