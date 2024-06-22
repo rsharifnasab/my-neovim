@@ -1,5 +1,7 @@
 local slow_format_filetypes = {}
 
+local disable_autoformat_types = { 'yaml', 'yml' }
+
 local function format_on_save_func(bufnr)
   if slow_format_filetypes[vim.bo[bufnr].filetype] then
     return
@@ -13,11 +15,19 @@ local function format_on_save_func(bufnr)
   if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
     return
   end
+
   -- Disable autoformat for files in a certain path
   local bufname = vim.api.nvim_buf_get_name(bufnr)
   if bufname:match '/node_modules/' then
     return
   end
+
+  -- Disable for some filetypes
+  local filetype = vim.bo[bufnr].filetype
+  if vim.tbl_contains(disable_autoformat_types, filetype) then
+    return
+  end
+
   require('conform').format({ timeout_ms = 1000, lsp_fallback = true }, on_format)
 end
 
@@ -34,6 +44,13 @@ local function format_after_save_func(bufnr)
   if bufname:match '/node_modules/' then
     return
   end
+
+  -- Disable for some filetypes
+  local filetype = vim.bo[bufnr].filetype
+  if vim.tbl_contains(disable_autoformat_types, filetype) then
+    return
+  end
+
   require('conform').format { lsp_fallback = true, timeout_ms = 5000, async = true }
 end
 

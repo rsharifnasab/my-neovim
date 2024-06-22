@@ -14,7 +14,7 @@ vim.opt.linebreak = true -- break lines on white space
 vim.opt.breakindent = true -- indent line after break
 
 vim.opt.cursorline = true -- highlight current line
-vim.opt.scrolloff = 10 -- Lines to keep above and below the cursor while scrolling
+vim.opt.scrolloff = 4 -- Lines to keep above and below the cursor while scrolling
 vim.opt.sidescrolloff = 5
 
 -- Display whitespace
@@ -127,7 +127,6 @@ vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = 
 
 vim.api.nvim_set_keymap('n', ';', ':', { noremap = true, desc = 'simplify command mode entry' })
 vim.api.nvim_set_keymap('v', ';', ':', { noremap = true, desc = 'simplify command mode entry' })
--- Custom command aliases
 vim.api.nvim_create_user_command('Wq', 'wq', {})
 vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('W', 'w', {})
