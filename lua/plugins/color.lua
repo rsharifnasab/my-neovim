@@ -55,21 +55,18 @@ return {
     end,
   },
 
-  -- colorschemes
+  ------------------
+  -- colorschemes --
+  ------------------
   {
     'rmehri01/onenord.nvim',
-    lazy = true,
+    lazy = false,
     config = function()
       require('onenord').setup {
         theme = 'dark', -- "dark" or "light".
         borders = true, -- Split window borders
         fade_nc = true, -- Fade non-current windows
         styles = {
-          comments = 'NONE',
-          strings = 'NONE',
-          keywords = 'NONE',
-          functions = 'NONE',
-          variables = 'NONE',
           diagnostics = 'underline',
         },
         disable = {
@@ -82,14 +79,12 @@ return {
         inverse = {
           match_paren = false,
         },
-        custom_highlights = {},
-        custom_colors = {},
       }
     end,
   },
   {
     'ribru17/bamboo.nvim',
-    lazy = true,
+    lazy = false,
     config = function()
       require('bamboo').setup {
         transparent = false, -- Show/hide background
@@ -105,7 +100,7 @@ return {
           variables = {},
         },
       }
-      --require('bamboo').load()
+      require('bamboo').load()
     end,
   },
   'rafi/awesome-vim-colorschemes',
@@ -121,6 +116,26 @@ return {
           --eob_lines = false, -- Hide the end-of-buffer lines
         },
       }
+    end,
+  },
+  {
+    'tanvirtin/monokai.nvim',
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      -- require('monokai').setup {}
+      -- require('monokai').setup { palette = require('monokai').pro }
+      -- require('monokai').setup { palette = require('monokai').soda }
+      -- require('monokai').setup { palette = require('monokai').ristretto }
+    end,
+  },
+  {
+    'oxfist/night-owl.nvim',
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      --require('night-owl').setup()
+      --vim.cmd.colorscheme 'night-owl'
     end,
   },
   {
@@ -150,10 +165,10 @@ return {
           parameter = { style = 'italic' },
         },
       }
-      require('telescope').load_extension 'themes'
       -- Select themes:
-      -- :Telescope themes
-      -- :COLORSCROLL
+      -- :COLORSCROLL (only themer)
+      -- <space>c or Telescope colorscheme enable_preview=true
+
       -- export to kitty:
       -- :lua require("themer.modules.export.kitty").write_config()
       -- :w  ~/.config/kitty/nvim-color.conf
