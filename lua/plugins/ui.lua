@@ -5,7 +5,6 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = { signs = false },
   },
-
   { -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
@@ -54,41 +53,7 @@ return {
       }
     end,
   },
-  'rafi/awesome-vim-colorschemes',
-  {
-    -- https://github.com/ThemerCorp/themer.lua
-    'themercorp/themer.lua',
-    priority = 1000,
-    init = function()
-      require('themer').setup {
-        --colorscheme = 'kanagawa',
-        colorscheme = 'doom_one',
-        transparent = false,
-        lugins = {
-          treesitter = true,
-          indentline = true,
-          barbar = true,
-          bufferline = true,
-          cmp = true,
-          gitsigns = true,
-          lsp = true,
-          telescope = true,
-        },
-        styles = {
-          ['function'] = { style = 'italic' },
-          functionbuiltin = { style = 'italic' },
-          variable = { style = 'italic' },
-          variableBuiltIn = { style = 'italic' },
-          parameter = { style = 'italic' },
-        },
-      }
-      -- Select themes:
-      -- :COLORSCROLL (only themer)
-      -- <space>c or Telescope colorscheme enable_preview=true
 
-      -- export to kitty:
-      -- :lua require("themer.modules.export.kitty").write_config()
-      -- :w  ~/.config/kitty/nvim-color.conf
-    end,
-  },
+  -- Misc colorschemes
+  'rafi/awesome-vim-colorschemes',
 }

@@ -202,12 +202,13 @@ require('lazy').setup({
   require 'plugins.lsp',
   require 'plugins.autocomplete',
   require 'plugins.autoformat',
-  require 'plugins.color',
-  require 'plugins.ui',
   require 'plugins.key',
   require 'plugins.lang',
   require 'plugins.misc',
   require 'plugins.debug',
+
+  require 'plugins.ui',
+  require 'plugins.color',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -241,5 +242,7 @@ vim.api.nvim_create_autocmd({ 'VimLeavePre' }, {
     vim.cmd.sleep { args = { '1m' } }
   end,
 })
+
+vim.cmd('colorscheme ' .. SelectColorschemeName)
 
 -- vim: ts=2 sts=2 sw=2 et

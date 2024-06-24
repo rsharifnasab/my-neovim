@@ -1,7 +1,43 @@
-local spec = {
+local color_scheme_list = {
   ------------------
   -- colorschemes --
   ------------------
+  {
+    -- https://github.com/ThemerCorp/themer.lua
+    'themercorp/themer.lua',
+    name = 'colors_themer',
+    setup = function()
+      require('themer').setup {
+        --colorscheme = 'kanagawa',
+        colorscheme = 'doom_one',
+        transparent = false,
+        lugins = {
+          treesitter = true,
+          indentline = true,
+          barbar = true,
+          bufferline = true,
+          cmp = true,
+          gitsigns = true,
+          lsp = true,
+          telescope = true,
+        },
+        styles = {
+          ['function'] = { style = 'italic' },
+          functionbuiltin = { style = 'italic' },
+          variable = { style = 'italic' },
+          variableBuiltIn = { style = 'italic' },
+          parameter = { style = 'italic' },
+        },
+      }
+      -- Select themes:
+      -- :COLORSCROLL (only themer)
+      -- <space>cc
+
+      -- export to kitty:
+      -- :lua require("themer.modules.export.kitty").write_config()
+      -- :w  ~/.config/kitty/nvim-color.conf
+    end,
+  },
   {
     'rmehri01/onenord.nvim',
     lazy = true,
@@ -60,6 +96,11 @@ local spec = {
     lazy = true,
   },
   {
+    'NTBBloodbath/doom-one.nvim',
+    name = 'colors_doom_one',
+    lazy = true,
+  },
+  {
     'marko-cerovac/material.nvim',
     name = 'colors_material',
     lazy = true,
@@ -95,9 +136,8 @@ local spec = {
   },
 }
 
-vim.keymap.set('n', '<leader>uu', function() --> Show all custom colors in telescope...
-  for _, color in ipairs(spec) do --> Load all colors in spec....
-    print(color)
+vim.keymap.set('n', '<leader>cc', function() --> Show all custom colors in telescope...
+  for _, color in ipairs(color_scheme_list) do --> Load all colors in spec....
     vim.cmd('Lazy load ' .. color.name) --> vim colorschemes cannot be required...
   end
 
@@ -128,13 +168,26 @@ vim.keymap.set('n', '<leader>uu', function() --> Show all custom colors in teles
     ---@diagnostic disable-next-line: duplicate-set-field
     vim.fn.getcompletion = function() --> override
       return vim.tbl_filter(function(color)
-        return not vim.tbl_contains(builtins, color) --
+        return not vim.tbl_contains(builtins, color)
       end, completion('', 'color'))
     end
 
     vim.cmd 'Telescope colorscheme enable_preview=true'
     vim.fn.getcompletion = completion --> restore
   end)
-end, { desc = 'Telescope custom colors', silent = true })
+end, { desc = 'Select [C]olors[C]heme', silent = true })
 
-return spec
+SelectColorschemeName = 'xcode'
+
+if SelectColorschemeName and SelectColorschemeName ~= '' then
+  for _, cs in ipairs(color_scheme_list) do
+    if cs.name == 'colors_' .. SelectColorschemeName then
+      cs.lazy = false
+      cs.priority = 1000
+    else
+      cs.lazy = true
+    end
+  end
+end
+
+return color_scheme_list
