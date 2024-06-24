@@ -13,7 +13,7 @@ vim.opt.wrap = true -- break long lines
 vim.opt.linebreak = true -- break lines on white space
 vim.opt.breakindent = true -- indent line after break
 
-vim.opt.cursorline = true -- highlight current line
+vim.opt.cursorline = false -- highlight current line
 vim.opt.scrolloff = 4 -- Lines to keep above and below the cursor while scrolling
 vim.opt.sidescrolloff = 5
 
@@ -185,13 +185,10 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 -- [[ PLUGINS ]]
---    :Lazy
---  To Sync plugins you can run
---    :Lazy sync
 require('lazy').setup({
   -- Use `opts = {}` to force a plugin to be loaded.
-  --  This is equivalent to:
-  --    require('Comment').setup({})
+  -- This is equivalent to:
+  -- require('Comment').setup({})
 
   require 'plugins.debug',
   -- require 'plugins.autopairs',
@@ -206,6 +203,7 @@ require('lazy').setup({
   require 'plugins.autocomplete',
   require 'plugins.autoformat',
   require 'plugins.color',
+  require 'plugins.ui',
   require 'plugins.key',
   require 'plugins.lang',
   require 'plugins.misc',
