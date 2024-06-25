@@ -5,7 +5,7 @@ local color_scheme_list = {
   {
     -- https://github.com/ThemerCorp/themer.lua
     'themercorp/themer.lua',
-    name = 'colors_themer',
+    name = 'themer',
     setup = function()
       require('themer').setup {
         --colorscheme = 'kanagawa',
@@ -41,7 +41,7 @@ local color_scheme_list = {
   {
     'rmehri01/onenord.nvim',
     lazy = true,
-    name = 'colors_onenord',
+    name = 'onenord',
     config = function()
       require('onenord').setup {
         theme = 'dark', -- "dark" or "light".
@@ -65,7 +65,7 @@ local color_scheme_list = {
   },
   {
     'ribru17/bamboo.nvim',
-    name = 'colors_bamboo',
+    name = 'bamboo',
     lazy = true,
     config = function()
       require('bamboo').setup {
@@ -87,22 +87,27 @@ local color_scheme_list = {
   },
   {
     'AhmedAbdulrahman/vim-aylin',
-    name = 'colors_aylin',
+    name = 'aylin',
     lazy = true,
   },
   {
     'arzg/vim-colors-xcode',
-    name = 'colors_xcode',
+    name = 'xcode',
     lazy = true,
   },
   {
     'NTBBloodbath/doom-one.nvim',
-    name = 'colors_doom_one',
+    name = 'doom-one',
+    lazy = true,
+  },
+  {
+    'tyrannicaltoucan/vim-deep-space',
+    name = 'deep-space',
     lazy = true,
   },
   {
     'marko-cerovac/material.nvim',
-    name = 'colors_material',
+    name = 'material',
     lazy = true,
     config = function()
       require('material').setup {
@@ -117,7 +122,7 @@ local color_scheme_list = {
   {
     'tanvirtin/monokai.nvim',
     lazy = true,
-    name = 'colors_monokai',
+    name = 'monokai',
     config = function()
       require('monokai').setup {}
       -- require('monokai').setup { palette = require('monokai').pro }
@@ -128,7 +133,7 @@ local color_scheme_list = {
   {
     'oxfist/night-owl.nvim',
     lazy = true,
-    name = 'colors_night_owl',
+    name = 'night_owl',
     config = function()
       require('night-owl').setup()
       vim.cmd.colorscheme 'night-owl'
@@ -177,11 +182,12 @@ vim.keymap.set('n', '<leader>cc', function() --> Show all custom colors in teles
   end)
 end, { desc = 'Select [C]olors[C]heme', silent = true })
 
-SelectColorschemeName = 'xcode'
+-- https://github.com/folke/lazy.nvim/discussions/1167
+SelectColorschemeName = 'deep-space'
 
 if SelectColorschemeName and SelectColorschemeName ~= '' then
   for _, cs in ipairs(color_scheme_list) do
-    if cs.name == 'colors_' .. SelectColorschemeName then
+    if cs.name == SelectColorschemeName then
       cs.lazy = false
       cs.priority = 1000
     else
