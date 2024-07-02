@@ -133,10 +133,40 @@ local color_scheme_list = {
   {
     'oxfist/night-owl.nvim',
     lazy = true,
-    name = 'night_owl',
+    name = 'night-owl',
     config = function()
       require('night-owl').setup()
       vim.cmd.colorscheme 'night-owl'
+    end,
+  },
+  {
+    'EdenEast/nightfox.nvim',
+    lazy = true,
+    name = 'nightfox',
+    config = function()
+      require('nightfox').setup {}
+    end,
+  },
+  {
+    'AlexvZyl/nordic.nvim',
+    lazy = true,
+    name = 'nordic',
+    config = function()
+      require('nordic').load()
+    end,
+  },
+  {
+    'uloco/bluloco.nvim',
+    lazy = true,
+    name = 'bluloco',
+    dependencies = { 'rktjmp/lush.nvim' },
+    config = function()
+      require('bluloco').setup {
+        style = 'dark', -- "auto" | "dark" | "light"
+        transparent = false,
+        terminal = vim.fn.has 'gui_running' == 1, -- bluoco colors are enabled in gui terminals per default.
+        guicursor = true,
+      }
     end,
   },
 }
@@ -183,7 +213,10 @@ vim.keymap.set('n', '<leader>cc', function() --> Show all custom colors in teles
 end, { desc = 'Select [C]olors[C]heme', silent = true })
 
 -- https://github.com/folke/lazy.nvim/discussions/1167
-SelectColorschemeName = 'OceanicNext' -- 'deep-space'
+-- 'deep-space'
+-- 'OceanicNext'
+-- 'onedark'
+SelectColorschemeName = 'nordic'
 
 if SelectColorschemeName and SelectColorschemeName ~= '' then
   for _, cs in ipairs(color_scheme_list) do
