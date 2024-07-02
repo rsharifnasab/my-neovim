@@ -91,7 +91,7 @@ local color_scheme_list = {
     lazy = true,
   },
   {
-    'arzg/vim-colors-xcode',
+    'lunacookies/vim-colors-xcode',
     name = 'xcode',
     lazy = true,
   },
@@ -183,7 +183,7 @@ vim.keymap.set('n', '<leader>cc', function() --> Show all custom colors in teles
 end, { desc = 'Select [C]olors[C]heme', silent = true })
 
 -- https://github.com/folke/lazy.nvim/discussions/1167
-SelectColorschemeName = 'deep-space'
+SelectColorschemeName = 'OceanicNext' -- 'deep-space'
 
 if SelectColorschemeName and SelectColorschemeName ~= '' then
   for _, cs in ipairs(color_scheme_list) do
