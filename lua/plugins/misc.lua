@@ -57,4 +57,18 @@ return {
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
+  {
+    'm4xshen/hardtime.nvim',
+    dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' },
+    opts = {
+      max_time = 1000,
+      max_count = 5,
+      disable_mouse = false,
+      hint = true,
+      notification = true,
+      allow_different_key = true,
+      enabled = true,
+      restriction_mode = 'block', -- block or hint
+    },
+  },
 }
