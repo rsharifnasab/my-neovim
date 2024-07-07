@@ -34,7 +34,7 @@ return {
           end
           map('gs', require('telescope.builtin').lsp_definitions, '[G]oto Definition ([S]ource)')
           map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-          map('C-]', require('telescope.builtin').lsp_definitions, 'Goto Definition')
+          map('<C-]>', require('telescope.builtin').lsp_definitions, 'Goto Definition')
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
           map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences') -- for work under cursor
           map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
