@@ -67,7 +67,7 @@ return {
       hint = true,
       notification = true,
       allow_different_key = true,
-      enabled = true,
+      enabled = false,
       restriction_mode = 'block', -- block or hint
     },
   },

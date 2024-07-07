@@ -169,6 +169,15 @@ local color_scheme_list = {
       }
     end,
   },
+  {
+    -- like ayu and gruvbox and papercolor
+    'savq/melange-nvim',
+    lazy = true,
+    name = 'melange',
+    config = function()
+      vim.cmd.colorscheme 'melange'
+    end,
+  },
 }
 
 vim.keymap.set('n', '<leader>cc', function() --> Show all custom colors in telescope...
