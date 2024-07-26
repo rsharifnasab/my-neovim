@@ -7,7 +7,7 @@ return {
       local lint = require 'lint'
 
       lint.linters_by_ft = lint.linters_by_ft or {}
-      lint.linters_by_ft['markdown'] = { 'markdownlint' }
+      lint.linters_by_ft['markdown'] = {} -- 'markdownlint' }
       lint.linters_by_ft['dockerfile'] = { 'hadolint' }
       lint.linters_by_ft['json'] = { 'jsonlint' }
       lint.linters_by_ft['go'] = { 'golangcilint' }
