@@ -23,7 +23,17 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       { 'j-hui/fidget.nvim', opts = {} }, -- UI for notifications
-      { 'folke/neodev.nvim', opts = {} }, -- lsp for lua nvim
+      { -- lazydev for lua LSP
+        'folke/lazydev.nvim',
+        ft = 'lua',
+        opts = {
+          library = {
+            -- Load luvit types when the `vim.uv` word is found
+            { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+          },
+        },
+      },
+      { 'Bilal2453/luvit-meta', lazy = true },
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -76,9 +86,9 @@ return {
 
           -- Enable inlay hints, if it's supported
           -- This may be unwanted, since they displace some of your code
-          if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
             map('<leader>th', function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, '[T]oggle Inlay [H]ints')
           end
         end,

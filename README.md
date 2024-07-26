@@ -71,6 +71,5 @@ List of recommended lsp plugins is
 
 ## TODO
 
-- test dockerfile and helm and mabye install old plugins
 - test editorconfig and undotree plugin
 - check snippets like iferr in go

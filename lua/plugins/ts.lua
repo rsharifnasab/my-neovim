@@ -14,10 +14,12 @@ return { -- Highlight, edit, and navigate code
       'lua',
       'luadoc',
       'markdown',
+      'markdown_inline',
       'vim',
       'vimdoc',
       'make',
       'diff',
+      'query',
     },
     -- Autoinstall languages that are not installed
     auto_install = true,
