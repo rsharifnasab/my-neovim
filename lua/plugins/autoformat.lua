@@ -123,29 +123,29 @@ return { -- Autoformat
     formatters_by_ft = {
       lua = { 'stylua' },
       justfile = { 'just' },
-      yaml = { { 'prettierd', 'prettier' }, 'yamlfmt', 'yq', 'yamlfix' },
-      json = { 'jq', { 'prettierd', 'prettier' } },
-      md = { { 'prettierd', 'prettier' } },
+      yaml = { 'prettierd', 'yamlfmt', 'yq', 'yamlfix' },
+      json = { 'jq', 'prettierd' },
+      md = { 'prettierd' },
 
-      c = { { 'astyle', 'clang_format' } },
-      cpp = { { 'astyle', 'clang_format' } },
+      c = { 'astyle', 'clang_format' },
+      cpp = { 'astyle', 'clang_format' },
 
       java = { 'astyle' },
       go = { 'goimports', 'gofmt', 'gofumpt', 'gci' },
 
-      py = { 'isort', { 'ruff_format', 'black' } }, -- ruff_fix
-      python = { 'isort', { 'ruff_format', 'black' } },
+      py = { 'isort', 'ruff_format' }, -- ruff_fix, black
+      python = { 'isort', 'ruff_format' },
 
       sh = { 'shfmt', 'shellcheck' },
       bash = { 'shfmt', 'shellcheck' },
 
-      html = { { 'prettierd', 'prettier' } },
-      javascript = { { 'prettierd', 'prettier' } },
-      ts = { { 'prettierd', 'prettier' } },
-      jsx = { { 'prettierd', 'prettier' } },
-      css = { { 'prettierd', 'prettier' } },
-      less = { { 'prettierd', 'prettier' } },
-      scss = { { 'prettierd', 'prettier' } },
+      html = { 'prettierd' },
+      javascript = { 'prettierd' },
+      ts = { 'prettierd' },
+      jsx = { 'prettierd' },
+      css = { 'prettierd' },
+      less = { 'prettierd' },
+      scss = { 'prettierd' },
 
       -- all files
       ['*'] = { 'trim_whitespace', 'trim_newlines' },

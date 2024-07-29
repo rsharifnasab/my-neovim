@@ -1,5 +1,4 @@
 return {
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   { 'numToStr/Comment.nvim', opts = {} }, -- "gc" to comment/Uncomment
   {
     'airblade/vim-rooter',

@@ -19,7 +19,13 @@ vim.opt.sidescrolloff = 5
 
 -- Display whitespace
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = {
+  tab = '→ ', -- Tab character
+  trail = '⋅', -- Trailing spaces
+  extends = '›', -- Character for lines that extend beyond the window
+  precedes = '‹', -- Character for lines that precede the window
+  nbsp = '␣', -- Non-breakable space character
+}
 
 -- FIND and REPLACE
 vim.opt.ignorecase = true -- case insensetive
@@ -53,11 +59,10 @@ vim.opt.foldenable = false
 vim.opt.foldlevel = 5
 
 -- INDENT
--- NOTE: may break vim-suelth
--- vim.opt.shiftwidth = 4
--- vim.opt.tabstop = 4
--- vim.opt.smarttab = true
--- vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.smarttab = true
+vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.cindent = false
