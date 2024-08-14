@@ -118,6 +118,7 @@ return {
 
         --kotlin_language_server = {},
 
+        phpactor = {},
         clangd = {},
         helm_ls = {},
         --csharp_ls = {},
@@ -133,7 +134,7 @@ return {
 
         -- golang
         gopls = {},
-        golangci_lint_ls = {},
+        --golangci_lint_ls = {},
         --docker
         docker_compose_language_service = {},
         dockerls = {},
