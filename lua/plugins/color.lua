@@ -39,6 +39,15 @@ local color_scheme_list = {
     end,
   },
   {
+    'gbprod/nord.nvim',
+    lazy = true,
+    name = 'nord',
+    config = function()
+      require('nord').setup {}
+      vim.cmd.colorscheme 'nord'
+    end,
+  },
+  {
     'rmehri01/onenord.nvim',
     lazy = true,
     name = 'onenord',
@@ -237,7 +246,8 @@ end, { desc = 'Select [C]olors[C]heme', silent = true })
 -- 'onedark'
 -- 'onenord'
 -- 'two-firewatch'
-SelectColorschemeName = 'material-oceanic'
+--SelectColorschemeName = 'material-oceanic'
+SelectColorschemeName = 'onenord'
 
 if SelectColorschemeName and SelectColorschemeName ~= '' then
   for _, cs in ipairs(color_scheme_list) do
