@@ -115,6 +115,7 @@ return {
       local servers = {
         -- text:
         --harper_ls = {},
+        typos_lsp = {},
 
         --kotlin_language_server = {},
 
