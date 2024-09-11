@@ -1,11 +1,5 @@
 return { -- Autocompletion
   {
-    'supermaven-inc/supermaven-nvim',
-    config = function()
-      require('supermaven-nvim').setup {}
-    end,
-  },
-  {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
@@ -106,7 +100,7 @@ return { -- Autocompletion
         },
 
         sources = cmp.config.sources({
-          { name = 'supermaven' },
+          --{ name = 'supermaven' },
           {
             name = 'lazydev',
             -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it

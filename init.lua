@@ -6,7 +6,7 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true -- if you have a Nerd Font in the terminal
 vim.opt.termguicolors = true
 vim.opt.number = true -- Numbering of lines
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false -- nima wants
 vim.opt.showmode = false -- Don't show the mode (we have in status line)
 
 vim.opt.wrap = true -- break long lines
