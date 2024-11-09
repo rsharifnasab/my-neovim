@@ -100,6 +100,11 @@ local color_scheme_list = {
     lazy = true,
   },
   {
+    'scottmckendry/cyberdream.nvim',
+    name = 'cyberdream',
+    lazy = true,
+  },
+  {
     'lunacookies/vim-colors-xcode',
     name = 'xcode',
     lazy = true,
@@ -132,7 +137,7 @@ local color_scheme_list = {
       require('material').setup {
         disable = {
           colored_cursor = false, -- Disable the colored cursor
-          borders = false, -- Disable borders between verticaly split windows
+          borders = false, -- Disable borders between vertically split windows
           --eob_lines = false, -- Hide the end-of-buffer lines
         },
       }
@@ -247,6 +252,7 @@ end, { desc = 'Select [C]olors[C]heme', silent = true })
 -- 'onenord'
 -- 'two-firewatch'
 --SelectColorschemeName = 'material-oceanic'
+-- 'onenord'
 SelectColorschemeName = 'onenord'
 
 if SelectColorschemeName and SelectColorschemeName ~= '' then
