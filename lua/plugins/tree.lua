@@ -22,6 +22,17 @@ return {
     enable_diagnostics = true,
     open_files_do_not_replace_types = { 'terminal', 'trouble', 'qf' }, -- do not use windows containing these filetypes
     filesystem = {
+      filtered_items = {
+        visible = true,
+        show_hidden_count = true,
+        hide_dotfiles = false,
+        hide_gitignored = false,
+        hide_by_name = { -- why people use macOS?
+          '.git',
+          '.DS_Store',
+          'thumbs.db',
+        },
+      },
       hijack_netrw_behavior = 'open_current',
       follow_current_file = {
         enabled = true,
