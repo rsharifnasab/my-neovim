@@ -18,8 +18,10 @@ return { -- Highlight, edit, and navigate code
       'vim',
       'vimdoc',
       'make',
-      'diff',
       'query',
+      'diff',
+      'diff_rebase',
+      'gitcommit',
     },
     -- Autoinstall languages that are not installed
     auto_install = true,
