@@ -20,7 +20,7 @@ return { -- Highlight, edit, and navigate code
       'make',
       'query',
       'diff',
-      'diff_rebase',
+      'git_rebase',
       'gitcommit',
     },
     -- Autoinstall languages that are not installed
