@@ -253,7 +253,7 @@ end, { desc = 'Select [C]olors[C]heme', silent = true })
 -- 'two-firewatch'
 --SelectColorschemeName = 'material-oceanic'
 -- 'onenord'
-SelectColorschemeName = 'onenord'
+SelectColorschemeName = 'onedark'
 
 if SelectColorschemeName and SelectColorschemeName ~= '' then
   for _, cs in ipairs(color_scheme_list) do
