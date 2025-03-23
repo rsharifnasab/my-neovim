@@ -1,7 +1,8 @@
 return {
   'towolf/vim-helm',
-  'justinmk/vim-syntax-extra', -- add extra syntax highlight for flex
-  'elixir-editors/vim-elixir',
-  'ekalinin/Dockerfile.vim',
-  'rust-lang/rust.vim',
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^5',
+    lazy = false, -- This plugin is already lazy
+  },
 }

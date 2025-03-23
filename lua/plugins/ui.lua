@@ -53,7 +53,4 @@ return {
       }
     end,
   },
-
-  -- Misc colorschemes
-  'rafi/awesome-vim-colorschemes',
 }

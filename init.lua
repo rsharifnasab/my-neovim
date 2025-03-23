@@ -17,6 +17,10 @@ vim.opt.cursorline = false -- highlight current line
 vim.opt.scrolloff = 4 -- Lines to keep above and below the cursor while scrolling
 vim.opt.sidescrolloff = 5
 
+-- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- instead raise a dialog asking if you wish to save the current file(s)
+vim.opt.confirm = true
+
 -- Display whitespace
 vim.opt.list = true
 vim.opt.listchars = {
@@ -177,7 +181,7 @@ let g:loaded_netrwPlugin=1
 -- [[ Install `lazy.nvim` plugin manager ]]
 -- https://github.com/folke/lazy.nvim
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.uv.fs_stat(lazypath) then
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
   local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
   if vim.v.shell_error ~= 0 then

@@ -12,8 +12,8 @@ return {
   cmd = 'Neotree',
   lazy = false,
   keys = {
-    { '\\', ':Neotree reveal<CR>', { desc = 'NeoTree reveal' } },
-    { '<C-f>', ':Neotree toggle<CR>', { desc = 'NeoTree toggle' } },
+    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<C-f>', ':Neotree toggle<CR>', { desc = 'NeoTree toggle' }, silent = true },
   },
   opts = {
     close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
