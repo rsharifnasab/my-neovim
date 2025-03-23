@@ -248,12 +248,11 @@ end, { desc = 'Select [C]olors[C]heme', silent = true })
 -- https://github.com/folke/lazy.nvim/discussions/1167
 -- 'deep-space'
 -- 'OceanicNext'
--- 'onedark'
 -- 'onenord'
 -- 'two-firewatch'
 --SelectColorschemeName = 'material-oceanic'
 -- 'onenord'
-SelectColorschemeName = 'onedark'
+SelectColorschemeName = 'onenord'
 
 if SelectColorschemeName and SelectColorschemeName ~= '' then
   for _, cs in ipairs(color_scheme_list) do
