@@ -85,6 +85,9 @@ vim.o.whichwrap = vim.o.whichwrap .. '<,>,[,]'
 vim.o.backspace = 'indent,eol,start' -- Fix backspace behavior
 
 -- EXTERNAL
+-- pyenv virtualenv nvim
+-- pyenv activate nvim
+-- pip3 install neovim
 vim.g.python3_host_prog = '/home/roozbeh/.pyenv/versions/nvim/bin/python3'
 vim.g.ruby_host_prog = '/home/roozbeh/.local/share/gem/ruby/3.0.0/bin/neovim-ruby-host'
 

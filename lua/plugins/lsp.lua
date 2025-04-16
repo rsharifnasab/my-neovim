@@ -87,7 +87,7 @@ return {
 
           -- Enable inlay hints, if it's supported
           -- This may be unwanted, since they displace some of your code
-          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+          if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
             map('<leader>th', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, '[T]oggle Inlay [H]ints')
@@ -131,7 +131,7 @@ return {
         jsonls = {},
         --python
         --ruff = {},
-        jedi_language_server = {},
+        --jedi_language_server = {},
         pyright = {},
 
         -- golang
