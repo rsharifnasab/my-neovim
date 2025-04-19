@@ -12,7 +12,7 @@ Requirements:
   - if you have it set `vim.g.have_nerd_font` in `init.lua` to true
 
 ```bash
-sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim
+sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim python-pynvim
 ```
 
 ### Install
