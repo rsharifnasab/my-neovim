@@ -140,6 +140,8 @@ return {
         --docker
         docker_compose_language_service = {},
         dockerls = {},
+        -- protobuf
+        pbls = {},
         -- format
         --spectral = {},
         --dprint = {},
