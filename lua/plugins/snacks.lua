@@ -6,25 +6,36 @@ return {
   opts = {
     bigfile = { enabled = true },
     dashboard = { enabled = true },
-    explorer = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
     notifier = {
       enabled = true,
       timeout = 3000,
     },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      sources = {
+        explorer = {
+          auto_close = true,
+        },
+      },
+    },
     quickfile = { enabled = true },
-    scope = { enabled = true },
     scroll = { enabled = true },
-    statuscolumn = { enabled = true },
     words = { enabled = true },
+    image = { enabled = true },
+    explorer = {
+      enabled = true,
+      replace_netrw = true, -- Replace netrw with the snacks explorer
+    },
     styles = {
       notification = {
         -- wo = { wrap = true } -- Wrap notifications
       },
     },
-    image = { enabled = true },
+
+    scope = { enabled = false },
+    statuscolumn = { enabled = false },
   },
   keys = {
     -- Top Pickers & Explorer
@@ -59,7 +70,7 @@ return {
     {
       '<C-f>',
       function()
-        Snacks.explorer()
+        Snacks.explorer.reveal()
       end,
       desc = 'File Explorer',
     },
@@ -448,6 +459,8 @@ return {
         Snacks.toggle.option('background', { off = 'light', on = 'dark', name = 'Dark Background' }):map '<leader>ub'
         Snacks.toggle.inlay_hints():map '<leader>uh'
         Snacks.toggle.indent():map '<leader>ug'
+
+        --Snacks.explorer():map '<leader>q'
       end,
     })
   end,
