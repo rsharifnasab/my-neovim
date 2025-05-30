@@ -202,9 +202,7 @@ require('lazy').setup({
   -- require 'plugins.autopairs',
   require 'plugins.telescope',
   require 'plugins.lint',
-  require 'plugins.tree',
   require 'plugins.gitsigns',
-  require 'plugins.dashboard',
 
   require 'plugins.ts',
   require 'plugins.lsp',
@@ -214,6 +212,7 @@ require('lazy').setup({
   require 'plugins.lang',
   require 'plugins.misc',
   require 'plugins.debug',
+  require 'plugins.snacks',
 
   require 'plugins.ui',
   require 'plugins.color',
