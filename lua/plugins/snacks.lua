@@ -24,10 +24,6 @@ return {
     scroll = { enabled = true },
     words = { enabled = true },
     image = { enabled = true },
-    explorer = {
-      enabled = true,
-      replace_netrw = true, -- Replace netrw with the snacks explorer
-    },
     styles = {
       notification = {
         -- wo = { wrap = true } -- Wrap notifications
@@ -66,13 +62,6 @@ return {
         Snacks.picker.command_history()
       end,
       desc = 'Command History',
-    },
-    {
-      '<C-f>',
-      function()
-        Snacks.explorer.reveal()
-      end,
-      desc = 'File Explorer',
     },
     -- find
     {
