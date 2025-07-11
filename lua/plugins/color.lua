@@ -212,6 +212,7 @@ local color_scheme_list = {
 --SelectColorschemeName = 'material-oceanic'
 -- 'onenord'
 SelectColorschemeName = 'nordfox'
+SelectColorschemeName = 'nordic'
 
 if SelectColorschemeName and SelectColorschemeName ~= '' then
   for _, cs in ipairs(color_scheme_list) do
