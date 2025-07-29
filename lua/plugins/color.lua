@@ -202,6 +202,12 @@ local color_scheme_list = {
       vim.cmd.colorscheme 'melange'
     end,
   },
+  {
+    'glepnir/zephyr-nvim',
+    lazy = true,
+    name = 'zephyr',
+    requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
+  },
 }
 
 -- https://github.com/folke/lazy.nvim/discussions/1167
@@ -212,6 +218,7 @@ local color_scheme_list = {
 --SelectColorschemeName = 'material-oceanic'
 -- 'onenord'
 SelectColorschemeName = 'nordfox'
+SelectColorschemeName = 'zephyr'
 
 if SelectColorschemeName and SelectColorschemeName ~= '' then
   for _, cs in ipairs(color_scheme_list) do
