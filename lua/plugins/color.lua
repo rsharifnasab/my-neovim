@@ -218,6 +218,7 @@ local color_scheme_list = {
 --SelectColorschemeName = 'material-oceanic'
 -- 'onenord'
 SelectColorschemeName = 'nordfox'
+SelectColorschemeName = 'nordic'
 SelectColorschemeName = 'zephyr'
 
 if SelectColorschemeName and SelectColorschemeName ~= '' then
