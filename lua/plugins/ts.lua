@@ -23,6 +23,7 @@ return { -- Highlight, edit, and navigate code
       'git_rebase',
       'gitcommit',
       'helm',
+      'regex',
     },
     -- Autoinstall languages that are not installed
     auto_install = true,

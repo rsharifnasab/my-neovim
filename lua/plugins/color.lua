@@ -130,6 +130,13 @@ local color_scheme_list = {
     lazy = true,
   },
   {
+    'yorumicolors/yorumi.nvim',
+    name = 'yorumi',
+    lazy = true,
+  },
+
+  {
+
     'marko-cerovac/material.nvim',
     name = 'material',
     lazy = true,
@@ -219,7 +226,7 @@ local color_scheme_list = {
 -- 'onenord'
 SelectColorschemeName = 'nordfox'
 SelectColorschemeName = 'nordic'
-SelectColorschemeName = 'zephyr'
+SelectColorschemeName = 'yorumi'
 
 if SelectColorschemeName and SelectColorschemeName ~= '' then
   for _, cs in ipairs(color_scheme_list) do
