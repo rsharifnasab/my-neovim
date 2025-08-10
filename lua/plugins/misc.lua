@@ -1,4 +1,5 @@
 return {
+  { 'wakatime/vim-wakatime', lazy = false },
   { 'numToStr/Comment.nvim', opts = {} }, -- "gcc" to comment/Uncomment
   {
     'airblade/vim-rooter',
