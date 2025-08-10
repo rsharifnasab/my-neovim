@@ -2,17 +2,17 @@
 """"""""""""" VIM CHEATS """"""""""""
 
 " " BUILTIN COMMANDS CHEAT
-:sav -> save as and continue editing new file
+:save -> save as and continue editing new file
 
 zz, zt, zb, z. -> change screen position
 H,M,L -> change cursor position in current screen
 5H: 5th line from upper screen
 5L: 5th line from down screen
 
-Set relativenumber -> shomare khat ha faseleshoun ba jayee ke hasti
+Set relativenumber
 . -> repeat last command
 
-gf: edit the file which its name is under curser
+gf: edit the file which its name is under cursor
 
 ~: change case one char
 g~ft: change case to first t (use with motion)
@@ -110,7 +110,7 @@ New tab <C-n>
 Close current buffer <C-q>
 
 " tabs
-:tabedit file1 -> open nwe file in tab
+:tabedit file1 -> open new file in tab
 :tabfirst , :tablast -> move to first and last tab
 :tabn , :tabp -> move one tab
 :tabs -> show all tabs
