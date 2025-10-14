@@ -145,6 +145,10 @@ vim.api.nvim_set_keymap('n', '<C-q>', ':bd<CR>', { noremap = true, silent = true
 vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>', { noremap = true, silent = true, desc = 'ctrl-c to exit insert mode' })
 vim.api.nvim_set_keymap('n', 'Q', '<nop>', { noremap = true, desc = 'disable Q' })
 
+-- Disable 'u' and 'U' in Visual mode
+vim.keymap.set('v', 'u', '<Nop>', { silent = true })
+vim.keymap.set('v', 'U', '<Nop>', { silent = true })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
