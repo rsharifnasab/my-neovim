@@ -39,36 +39,56 @@ return {
       })
 
       vim.diagnostic.config {
-        virtual_text = {
-          prefix = '', -- Could be '●', '▎', 'x'
-          spacing = 4,
-        },
-        signs = true,
-        underline = true,
+        virtual_text = false, -- no inline text clutter
+        signs = true, -- keep gutter signs
+        underline = true, -- subtle underline
+        update_in_insert = false,
         severity_sort = true,
+        float = {
+          border = 'rounded',
+          source = 'if_many', -- linter/LSP name
+          header = '',
+          prefix = '',
+        },
       }
-      -- TODO: https://github.com/1995parham/elievim/blob/a683ce41ff14b374f18eb89f609257b1f1c1dd22/lua/modules/completion/config.lua#L8
 
-      -- Show diagnostics in a floating window on hover
-      vim.api.nvim_create_autocmd({ 'CursorHold' }, {
+      vim.api.nvim_create_autocmd('CursorHold', {
         callback = function()
-          local opts = {
+          vim.diagnostic.open_float(nil, {
             focusable = false,
             close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
             border = 'rounded',
-            source = 'always',
-            prefix = ' ',
+            source = 'if_many',
+            prefix = '',
             scope = 'cursor',
-          }
-          vim.diagnostic.open_float(nil, opts)
+          })
         end,
       })
 
-      vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { noremap = true, silent = true, desc = 'Show diagnostics in floating windows' })
+      -- Show diagnostics in a floating window (like Zed hover)
+      vim.keymap.set('n', '<leader>e', function()
+        vim.diagnostic.open_float(nil, { border = 'rounded', scope = 'cursor' })
+      end, { noremap = true, silent = true, desc = 'Show diagnostics at cursor' })
 
-      vim.keymap.set('n', '<leader>E', function()
-        vim.diagnostic.open_float(0, { scope = 'buffer', border = 'rounded' })
-      end, { noremap = true, silent = true, desc = 'Show all diagnostics in buffer' })
+      -- Open the diagnostics list (location list)
+      local function focus_diag_loclist()
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+          local info = vim.fn.getwininfo(win)[1]
+          if info.loclist == 1 then
+            vim.api.nvim_set_current_win(win)
+            return
+          end
+        end
+        vim.diagnostic.setloclist()
+      end
+      vim.keymap.set('n', '<leader>q', focus_diag_loclist, { noremap = true, silent = true, desc = 'Focus diagnostics list if open' })
+
+      -- Define clean diagnostic signs
+      local signs = { Error = '✘ ', Warn = '▲ ', Hint = '⚑ ', Info = ' ' }
+      for type, icon in pairs(signs) do
+        local hl = 'DiagnosticSign' .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+      end
     end,
   },
 }
