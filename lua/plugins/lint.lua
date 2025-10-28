@@ -65,6 +65,10 @@ return {
       })
 
       vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { noremap = true, silent = true, desc = 'Show diagnostics in floating windows' })
+
+      vim.keymap.set('n', '<leader>E', function()
+        vim.diagnostic.open_float(0, { scope = 'buffer', border = 'rounded' })
+      end, { noremap = true, silent = true, desc = 'Show all diagnostics in buffer' })
     end,
   },
 }
