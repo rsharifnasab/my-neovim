@@ -215,6 +215,22 @@ local color_scheme_list = {
     name = 'zephyr',
     requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
   },
+  {
+    'ilof2/posterpole.nvim',
+    name = 'posterpole',
+    config = function()
+      local posterpole = require 'posterpole'
+
+      posterpole.setup {
+        -- config here
+      }
+      --vim.cmd 'colorscheme posterpole'
+
+      -- This function create sheduled task, which will reload theme every hour
+      -- Without "setup_adaptive" adaptive brightness will be set only after every restart
+      posterpole.setup_adaptive()
+    end,
+  },
 }
 
 -- https://github.com/folke/lazy.nvim/discussions/1167
@@ -227,6 +243,7 @@ local color_scheme_list = {
 SelectColorschemeName = 'nordfox'
 SelectColorschemeName = 'nordic'
 SelectColorschemeName = 'yorumi'
+SelectColorschemeName = 'posterpole'
 
 if SelectColorschemeName and SelectColorschemeName ~= '' then
   for _, cs in ipairs(color_scheme_list) do
