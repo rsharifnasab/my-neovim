@@ -86,7 +86,8 @@ vim.o.backspace = 'indent,eol,start' -- Fix backspace behavior
 
 -- EXTERNAL
 -- install python-pynvim
-vim.g.python3_host_prog = '/usr/bin/python3'
+--vim.g.python3_host_prog = '/usr/bin/python3'
+vim.g.python3_host_prog = '~/.venvs/nvim/bin/python'
 vim.g.ruby_host_prog = '/home/roozbeh/.local/share/gem/ruby/3.0.0/bin/neovim-ruby-host'
 vim.g.loaded_perl_provider = 0
 
