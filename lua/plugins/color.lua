@@ -236,7 +236,6 @@ local color_scheme_list = {
 -- https://github.com/folke/lazy.nvim/discussions/1167
 -- 'deep-space'
 -- 'OceanicNext'
--- 'onenord'
 -- 'two-firewatch'
 --SelectColorschemeName = 'material-oceanic'
 -- 'onenord'
@@ -244,6 +243,7 @@ SelectColorschemeName = 'nordfox'
 SelectColorschemeName = 'nordic'
 SelectColorschemeName = 'yorumi'
 SelectColorschemeName = 'posterpole'
+SelectColorschemeName = 'onenord'
 
 if SelectColorschemeName and SelectColorschemeName ~= '' then
   for _, cs in ipairs(color_scheme_list) do
