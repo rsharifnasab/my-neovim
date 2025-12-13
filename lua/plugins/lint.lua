@@ -72,6 +72,7 @@ return {
 
       -- Open the diagnostics list (location list)
       local function focus_diag_loclist()
+        -- Check if loclist window is already open → focus it
         for _, win in ipairs(vim.api.nvim_list_wins()) do
           local info = vim.fn.getwininfo(win)[1]
           if info.loclist == 1 then
@@ -79,7 +80,50 @@ return {
             return
           end
         end
-        vim.diagnostic.setloclist()
+
+        -- Open diagnostics location list
+        vim.diagnostic.setloclist { open = true }
+
+        -- Find the loclist window
+        local loclist_win
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+          local info = vim.fn.getwininfo(win)[1]
+          if info.loclist == 1 then
+            loclist_win = win
+            break
+          end
+        end
+        if not loclist_win then
+          return
+        end
+
+        -- Apply custom settings
+        vim.api.nvim_win_call(loclist_win, function()
+          vim.cmd [[
+      wincmd L
+      "setlocal winfixwidth
+      setlocal nowrap
+      setlocal number
+      setlocal signcolumn=no
+      setlocal cursorline
+      setlocal nobuflisted
+    ]]
+        end)
+
+        -- Adjust width dynamically based on content
+        local width = 10
+        local max_len = 0
+        local items = vim.fn.getloclist(0)
+        for _, item in ipairs(items) do
+          if item.text then
+            max_len = math.max(max_len, #item.text)
+          end
+        end
+
+        -- Limit to at most 10 columns (for narrow lists)
+        width = math.min(math.max(10, max_len), 80)
+
+        vim.api.nvim_win_set_width(loclist_win, width)
       end
       vim.keymap.set('n', '<leader>q', focus_diag_loclist, { noremap = true, silent = true, desc = 'Focus diagnostics list if open' })
 

@@ -145,8 +145,6 @@ return {
         -- format
         --spectral = {},
         --dprint = {},
-        -- java
-        jdtls = {},
         --java_language_server = {},
         lua_ls = {
           -- cmd = {...},
