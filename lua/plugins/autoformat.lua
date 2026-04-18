@@ -1,6 +1,6 @@
 local slow_format_filetypes = {}
 
-local disable_autoformat_types = { 'yaml', 'yml' }
+local disable_autoformat_types = { 'yaml', 'yml', 'helm', 'yaml.helm-values' }
 
 local function format_on_save_func(bufnr)
   if slow_format_filetypes[vim.bo[bufnr].filetype] then
