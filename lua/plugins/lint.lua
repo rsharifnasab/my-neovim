@@ -14,6 +14,7 @@ return {
       lint.linters_by_ft['sh'] = nil -- use bashls instead { 'shellcheck' }
       lint.linters_by_ft['bash'] = { 'shellcheck' }
       lint.linters_by_ft['yaml'] = { 'yamllint' }
+      lint.linters_by_ft['helm'] = { 'yamllint' }
       lint.linters_by_ft['py'] = { 'ruff', 'pyright', 'pylint', 'flake8' }
       lint.linters_by_ft['clojure'] = nil
       lint.linters_by_ft['inko'] = nil

@@ -122,7 +122,34 @@ return {
 
         phpactor = {},
         clangd = {},
-        helm_ls = {},
+        helm_ls = {
+          logLevel = 'info',
+          valuesFiles = {
+            mainValuesFile = 'values.yaml',
+            lintOverlayValuesFile = 'values.lint.yaml',
+            additionalValuesFilesGlobPattern = 'values*.yaml',
+          },
+          helmLint = {
+            enabled = true,
+            ignoredMessages = {},
+          },
+          yamlls = {
+            enabled = true,
+            enabledForFilesGlob = '*.{yaml,yml}',
+            diagnosticsLimit = 50,
+            showDiagnosticsDirectly = false,
+            path = 'yaml-language-server', -- or something like { "node", "yaml-language-server.js" }
+            initTimeoutSeconds = 3,
+            config = {
+              schemas = {
+                kubernetes = 'templates/**',
+              },
+              completion = true,
+              hover = true,
+              -- any other config from https://github.com/redhat-developer/yaml-language-server#language-server-settings
+            },
+          },
+        },
         --csharp_ls = {},
         html = {},
         bashls = {},
@@ -186,6 +213,7 @@ return {
         'isort',
         'pylint',
         'flake8',
+        'yaml-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
