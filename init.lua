@@ -203,8 +203,6 @@ require('lazy').setup({
   -- This is equivalent to:
   -- require('Comment').setup({})
 
-  require 'plugins.debug',
-  -- require 'plugins.autopairs',
   require 'plugins.telescope',
   require 'plugins.lint',
   require 'plugins.gitsigns',
@@ -216,8 +214,6 @@ require('lazy').setup({
   require 'plugins.key',
   require 'plugins.lang',
   require 'plugins.misc',
-  require 'plugins.debug',
-  require 'plugins.snacks',
 
   require 'plugins.ui',
   require 'plugins.color',
