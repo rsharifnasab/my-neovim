@@ -10,9 +10,7 @@ return {
       default_file_explorer = false,
       columns = {
         'icon',
-        'permissions',
         'size',
-        'mtime',
       },
       delete_to_trash = true,
       watch_for_changes = true,
