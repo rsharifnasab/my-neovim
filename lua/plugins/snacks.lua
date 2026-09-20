@@ -21,7 +21,7 @@ return {
       },
     },
     quickfile = { enabled = true },
-    scroll = { enabled = true },
+    scroll = { enabled = false }, -- smooth scroll
     words = { enabled = true },
     image = { enabled = true },
     styles = {
