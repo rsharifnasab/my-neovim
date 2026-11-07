@@ -28,7 +28,6 @@ return {
       'vimdoc',
       'make',
       'query',
-      'diff',
       'git_rebase',
       'gitcommit',
       'helm',
