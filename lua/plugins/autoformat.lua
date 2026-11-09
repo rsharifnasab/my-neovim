@@ -147,6 +147,8 @@ return { -- Autoformat
       less = { 'prettierd' },
       scss = { 'prettierd' },
 
+      rust = { 'rustfmt' },
+
       -- all files
       ['*'] = { 'trim_whitespace', 'trim_newlines' },
       -- all with unrecognized type
